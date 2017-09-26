@@ -1,0 +1,265 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:layout_alignParentBottom="true"
+  android:background="@color/colorPrimaryLight"
+  tools:context="com.game.chaitanya.towersofhanoiremastered.MainGame">
+
+  <!-- The primary full-screen view. This can be replaced with whatever view
+       is needed to present your content, e.g. VideoView, SurfaceView,
+       TextureView, etc. -->
+
+  <RelativeLayout
+    android:id="@+id/veryUpperGridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="false"
+    android:layout_gravity="fill_vertical|center"
+    android:columnCount="5"
+    android:rowCount="1">
+
+    <TextView
+      android:id="@+id/mainText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:clickable="false"
+      android:text=" Drag a plate to begin."
+      android:textColor="@android:color/background_light"
+      android:textSize="20dp"
+      android:layout_margin="10dp"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentStart="true" />
+
+    <TextView
+      android:id="@+id/moveCountText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentRight="true"
+      android:clickable="false"
+      android:text="0 Moves "
+      android:textColor="@android:color/background_light"
+      android:textSize="20dp"
+      android:layout_margin="10dp" />
+    <Button
+      android:id="@+id/menuButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimaryLighter"
+      android:clickable="false"
+      android:text="Menu"
+      android:layout_marginStart="5dp"
+      android:onClick="menu"
+      android:layout_alignParentTop="true"
+      android:layout_alignParentRight="true"
+      android:layout_marginEnd="130dp"/>
+    <Button
+      android:id="@+id/solveButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimaryLighter"
+      android:clickable="false"
+      android:text="Solve"
+      android:layout_marginStart="5dp"
+      android:onClick="solve"
+      android:layout_alignParentTop="true"
+      android:layout_toStartOf="@+id/menuButton" />
+    <Button
+      android:id="@+id/resetButton"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:background="@color/colorPrimaryLighter"
+      android:clickable="false"
+      android:text="Reset"
+      android:layout_marginStart="5dp"
+      android:onClick="reset"
+      android:layout_alignParentTop="true"
+      android:layout_toStartOf="@+id/solveButton" />
+
+  </RelativeLayout>
+
+  <!--<ScrollView-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent">-->
+
+    <!--&lt;!&ndash;<HorizontalScrollView&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:clickable="false"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:scrollbarSize="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_margin="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_marginBottom="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_marginEnd="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_marginLeft="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_marginRight="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_marginStart="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_marginTop="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:padding="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:paddingBottom="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:paddingEnd="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:paddingLeft="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:paddingRight="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:paddingStart="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:paddingTop="0dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:elevation="1dp"&ndash;&gt;-->
+      <!--&lt;!&ndash;&gt;&ndash;&gt;-->
+
+      <!--&lt;!&ndash;<GridLayout&ndash;&gt;-->
+      <!--&lt;!&ndash;android:id="@+id/upperGridLayout"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_alignParentBottom="false"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:layout_gravity="fill_vertical|center"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:columnCount="5"&ndash;&gt;-->
+      <!--&lt;!&ndash;android:rowCount="1">&ndash;&gt;-->
+
+
+
+    <!--&lt;!&ndash;</GridLayout>&ndash;&gt;-->
+
+    <!--&lt;!&ndash;</HorizontalScrollView>&ndash;&gt;-->
+  <!--</ScrollView>-->
+
+  <GridLayout
+    android:id="@+id/gridLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentBottom="false"
+    android:layout_gravity="fill_vertical|center"
+    android:columnCount="3"
+    android:rowCount="8">
+
+
+    <ImageButton
+      android:id="@+id/lbase"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="7"
+      android:layout_rowWeight="1"
+      android:background="@drawable/base"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/cbase"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="1"
+      android:layout_columnWeight="1"
+      android:layout_row="7"
+      android:layout_rowWeight="1"
+      android:background="@drawable/base"
+      android:clickable="false" />
+    <ImageButton
+      android:id="@+id/rbase"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="2"
+      android:layout_columnWeight="1"
+      android:layout_row="7"
+      android:layout_rowWeight="1"
+      android:background="@drawable/base"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/imageButton0"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="6"
+      android:layout_rowWeight="1"
+      android:background="@drawable/w0"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/imageButton1"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="5"
+      android:layout_rowWeight="1"
+      android:background="@drawable/w0"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/imageButton2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="4"
+      android:layout_rowWeight="1"
+      android:background="@drawable/w0"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/imageButton3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="3"
+      android:layout_rowWeight="1"
+      android:background="@drawable/w0"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/imageButton4"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="2"
+      android:layout_rowWeight="1"
+      android:background="@drawable/w0"
+      android:clickable="false" />
+
+    <ImageButton
+      android:id="@+id/imageButton5"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_row="1"
+      android:layout_rowWeight="1"
+      android:background="@drawable/w0"
+      android:clickable="false" />
+
+    <TextView
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:clickable="false"
+      android:layout_column="0"
+      android:layout_columnWeight="1"
+      android:layout_gravity="center_vertical"
+      android:layout_row="0"
+      android:text=" "
+      android:textColor="@android:color/background_light"
+      android:textSize="20dp"
+      android:padding="15dp" />
+
+  </GridLayout>
+
+</FrameLayout>
